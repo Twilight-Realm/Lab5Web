@@ -28,13 +28,10 @@ function fetchWeather() {
             const cityName = data.name;
 
             document.getElementById('weatherInfo').innerHTML = `
-                <h2>Weather in ${cityName}, ${country}</h2>
-                <p>Temperature: ${temperature}°C (Feels like: ${feelsLike}°C)</p>
-                <p>Min Temperature: ${tempMin}°C, Max Temperature: ${tempMax}°C</p>
-                <p>Pressure: ${pressure} hPa</p>
-                <p>Humidity: ${humidity}%</p>
-                <p>Wind Speed: ${windSpeed} m/s (Gust: ${windGust} m/s), Direction: ${windDeg}°</p>
-                <p>Weather: ${weatherDescription}</p>
+                <h2>${cityName}, ${country}</h2>
+                <p>Температура: ${temperature}°C (Відчувається як: ${feelsLike}°C)</p>
+                <p>Вологість: ${humidity}%</p>
+                <p>Швидкість вітру: ${windSpeed} м/с</p>
                 <img src="https://openweathermap.org/img/wn/${weatherIcon}.png" alt="${weatherDescription}">
             `;
         })
