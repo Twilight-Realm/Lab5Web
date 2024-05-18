@@ -1,0 +1,14 @@
+{
+  "langs": [
+    {"langName": "C++"},
+    {"langName": "Python"},
+    {"langName": "Rust"},
+    {"langName": "C#"},
+    {"langName": "Java"},
+    {"langName": "Javascript"},
+    {"langName": "Cobol"},
+    {"langName": "C"},
+    {"langName": "Fortran"},
+    {"langName": "Go"}
+  ]
+}

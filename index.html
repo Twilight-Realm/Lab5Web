@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Лаб5_Солдатов</title>
+    <style>
+        #content {
+            background-color: yellow;
+            padding: 20px;
+        }
+        h1 {
+            display: flex;
+            justify-content: center;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<h1>Лабораторна робота №5<br>Солдатова Олексія Олександровича ІК-201</h1>
+<h2>Вибір даних</h2>
+<a href="#" id="languagesLink">Мови</a> | <a href="#" id="studentsLink">Студенти</a>
+<div id="content"></div>
+<script>
+    document.getElementById('languagesLink').addEventListener('click', function(event) {
+        event.preventDefault();
+        fetch('langs.json')
+            .then(response => response.json())
+            .then(data => {
+                displayData(data.langs);
+            })
+            .catch(error => {
+                console.error('Error fetching languages data:', error);
+            });
+    });
+
+    document.getElementById('studentsLink').addEventListener('click', function(event) {
+        event.preventDefault();
+        fetch('students.json')
+            .then(response => response.json())
+            .then(data => {
+                displayStudents(data.students);
+            })
+            .catch(error => {
+                console.error('Error fetching students data:', error);
+            });
+    });
+
+    function displayData(data) {
+        const contentDiv = document.getElementById('content');
+        contentDiv.innerHTML = '<h2>Мови програмування</h2><ul>';
+        data.forEach(item => {
+            contentDiv.innerHTML += `<li>${item.langName}</li>`;
+        });
+        contentDiv.innerHTML += '</ul>';
+    }
+
+    function displayStudents(students) {
+        const contentDiv = document.getElementById('content');
+        contentDiv.innerHTML = '<h2>Студенти</h2><ul>';
+        students.forEach(student => {
+            contentDiv.innerHTML += `<li>${student.name} ${student.surname}, ${student.age} років</li>`;
+        });
+        contentDiv.innerHTML += '</ul>';
+    }
+</script>
+<hr>
+<h2>Погода у Києві</h2>
+<button id="getWeather">Отримати</button>
+<div id="weatherInfo">
+</div>
+<script src="script.js"></script>
+</body>
+</html>
